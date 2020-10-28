@@ -20,7 +20,7 @@ async function addSite(myDetails,siteObj){
             var UUID_Site = uuidv4();
             var createdDate = dtUtil.todayDatetime();
             siteFieldsValues =[(siteObj.name)?siteObj.name:null, 
-                UUID_Site, 
+                UUID_Site,
                 (siteObj.address_line_1__c)?siteObj.address_line_1__c:null, 
                 (siteObj.address_line_2__c)?siteObj.address_line_2__c:null, 
                 (siteObj.alternate_phone_no__c)?siteObj.alternate_phone_no__c:null, 

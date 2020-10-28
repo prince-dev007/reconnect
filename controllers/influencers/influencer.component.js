@@ -19,7 +19,9 @@ async function addContact(myDetails,contactObj){
             contactFields =`firstname,lastname,pg_id__c,asm__c,area__c,attached_dealer__c,attached_retailer__c,business_so_far__c,business_this_month__c,meets_attended__c,psm__c,phone,potential__c,status__c,title,email,createddate`; 
             var UUID_Contact = uuidv4();
             var createdDate = dtUtil.todayDatetime();
-            contactFieldsValues =[contactObj.firstname,contactObj.lastname,UUID_Contact, contactObj.asm__c, contactObj.area__c, contactObj.attached_dealer__c, contactObj.attached_retailer__c, contactObj.business_so_far__c, contactObj.business_this_month__c, contactObj.meets_attended__c, contactObj.psm__c, contactObj.phone, contactObj.potential__c, contactObj.status__c, contactObj.title,contactObj.email, createdDate];
+            retailerID= '0122w000000NfMlAAK';
+            dealerID = '0122w000000NdOTAA0';
+            contactFieldsValues =[contactObj.firstname,contactObj.lastname,UUID_Contact, contactObj.asm__c, contactObj.area__c, contactObj.dealerID, contactObj.retailerID, contactObj.business_so_far__c, contactObj.business_this_month__c, contactObj.meets_attended__c, contactObj.psm__c, contactObj.phone, contactObj.potential__c, contactObj.status__c, contactObj.title,contactObj.email, createdDate];
             
             tableName = 'contact';
             var contactDetail = await db.insertRecord(contactFields, contactFieldsValues, tableName, `, pg_id__c`);
@@ -96,7 +98,7 @@ async function editContact(myDetails,contactObj){
                 fieldValue.push({ "field": "email", "value": contactObj.email });
 
             const WhereClouse = [];
-            WhereClouse.push({ "field": "pg_id__c", "value": contactObj.pg_id__c });
+            WhereClouse.push({ "field": "pg_id__c", "value": contactObj.pg_id__c,"field":"Attached_retailer__c","value":"0122w000000NfMlAAK","field":"Attached_Dealer__c","value":"0122w000000NdOTAA0" });
          
             contactDetail = await db.updateRecord(tableName, fieldValue, WhereClouse);
 

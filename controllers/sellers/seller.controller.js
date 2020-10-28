@@ -11,7 +11,6 @@ var validator = require('validator');
 router.get('/getAll', getAll);
 router.get('/detail', detail);
 router.get('/searchByLocation', searchByLocation);
-
 router.get('/search', search);
 router.post('/add', add); //  add seller
 router.post('/update', updateSeller);//  update seller

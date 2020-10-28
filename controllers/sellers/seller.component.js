@@ -53,7 +53,6 @@ async function processRetailersOrders(sellers, orders, type) {
                     } else {
 
                         if (order.dealer__c != undefined && order.dealer__c == account.sfid) {
-
                             isFilled = true;
                             responseData.push({ "seller": account, "order": order });
                         }

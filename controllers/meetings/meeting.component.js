@@ -172,7 +172,7 @@ async function getRetailerOrder(sellerdetails) {
 
     if (sellerdetails.retailer.length > 0) {
         retailer_ids = sellerdetails.retailer.join("','")
-        sql = `SELECT DISTINCT on (retailer__c) retailer__c ,name,sfid,date_part('epoch'::text, Order_Date__c) * (1000)::double precision as Order_Date__c,dealer__c,order_value__c FROM ${process.env.TABLE_SCHEMA_NAME}.Order__c where retailer__c IN ('${retailer_ids}') order by retailer__c,createddate desc`;
+        sql = `SELECT DISTINCT on (retailer__c) retailer__c ,name,sfid,date_part('epoch'::text, Order_Date__c) * (1000)::double precision as Order_Date__c,dealer__c,order_value__c FROM ${process.env.TABLE_SCHEMA_NAME}.Order__c where retailer__c.Retailer = Retailers Sales Service  IN ('${retailer_ids}') order by retailer__c,createddate desc`;
         console.log(`Get Retailer Orders ===== > ${sql}`);
         ordersObj = await db.getDbResult(sql);
     }
@@ -188,7 +188,7 @@ async function getDealerOrder(sellerdetails) {
 
     if (sellerdetails.dealer.length > 0) {
         dealer_ids = sellerdetails.dealer.join("','")
-        sql = `SELECT DISTINCT on (dealer__c) dealer__c ,name,sfid,date_part('epoch'::text, Order_Date__c) * (1000)::double precision as Order_Date__c,Retailer__c,order_value__c FROM ${process.env.TABLE_SCHEMA_NAME}.Order__c where Dealer__c IN ('${dealer_ids}') order by dealer__c,createddate desc`;
+        sql = `SELECT DISTINCT on (dealer__c) dealer__c ,name,sfid,date_part('epoch'::text, Order_Date__c) * (1000)::double precision as Order_Date__c,Retailer__c,order_value__c FROM ${process.env.TABLE_SCHEMA_NAME}.Order__c where Dealer__c AND Dealer__c = Retailers_Sales_Service IN ('${dealer_ids}') order by dealer__c,createddate desc`;
 
         console.log(`Get Dealer Orders ===== > ${sql}`);
 

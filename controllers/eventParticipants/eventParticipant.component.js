@@ -67,7 +67,6 @@ async function addEventParticipants(myDetails,eventParticipants){
             }
 
             fieldsToBeInsert = 'name, asm__c, event__c, event_pg_id__c,pg_id__c, createddate, event_participants__c';
-
             sql = `INSERT into ${process.env.TABLE_SCHEMA_NAME}.${tableName} (${fieldsToBeInsert}) VALUES ${fieldValues}`;
             console.log('Field Values >>> ', fieldValues);
             sql += ` RETURNING id,pg_id__c,sfid`;

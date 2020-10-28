@@ -58,7 +58,9 @@ async function getAll(req) {
                     "type": "LEFT",
                     "table_name": "contact",
                     "p_table_field": `${EVENT_TABLE_NAME}.Event_Participants__c`,
-                    "s_table_field": "contact.sfid"
+                    "s_table_field": "contact.sfid",
+                    "Event_Participants__c":"Service Engineer",
+                    "Event_Participants__c":"other"
                 }
             ];
             console.log('EVENT_FIELD    ===>  ',EVENT_FIELD);

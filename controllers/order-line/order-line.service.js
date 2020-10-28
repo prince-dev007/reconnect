@@ -42,12 +42,12 @@ async function getAll(req) {
                 }
 
                 // Get AgentDetail
-                WhereClouse.push({ "fieldName": "order_line__c.business__c", "fieldValue": agentInfo.rows[0]['business'] });
+                WhereClouse.push({ "fieldName": "order_line__c.business__c", "fieldValue": agentInfo.rows[0]['business']});
 
                 if (teamDetail.memberType == 'PSM') {
-                    WhereClouse.push({ "fieldName": "order_line__c.psm__c", "fieldValue": req.headers.agentid })
+                    WhereClouse.push({ "fieldName": "order_line__c.psm__c", "fieldValue": req.headers.agentid,"fieldName":"Retailer_Dealer__c","fieldValue":"Retailers_Sales_Service" })
                 } else {
-                    WhereClouse.push({ "fieldName": "order_line__c.asm__c", "fieldValue": teamDetail.ASM, "type": "IN" })
+                    WhereClouse.push({ "fieldName": "order_line__c.asm__c", "fieldValue": teamDetail.ASM, "type": "IN","fieldName":"account__c","fieldValue":"OEM" })
                 }
 
 

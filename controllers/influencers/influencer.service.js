@@ -45,18 +45,17 @@ async function getAll(req) {
             if (validation.issetNotEmpty(req.query.limit)) {
                 limit = req.query.limit;
             }
-
             if (validation.issetNotEmpty(req.headers.agentid)) {
-                WhereClouse.push({ "fieldName": "asm__c", "fieldValue": req.headers.agentid});
+                WhereClouse.push({ "fieldName": "asm__c", "fieldValue": req.headers.agentid ,"fieldName":"Attached_retailer__c","fieldValue":"ASC","fieldName":"Attached_retailer__c","fieldValue":"OEM","fieldName":"Attached_retailer__c","fieldValue":"Customer Sales Service","fieldName":"Attached_retailer__c","fieldValue":"Dealers Sales Service","fieldName":"Attached_retailer__c","fieldValue":"Retailers Sales Service","fieldName":"attached_dealer__c","fieldValue":"ASC","fieldName":"attached_dealer__c","fieldValue":"OEM","fieldName":"attached_dealer__c","fieldValue":"Customer Sales Service","fieldName":"attached_dealer__c","fieldValue":"Dealers Sales Service","fieldName":"attached_dealer__c","fieldValue":"Retailers Sales Service"});
             }
             if (validation.issetNotEmpty(req.query.name)) {
-                WhereClouse.push({ "fieldName": "name", "fieldValue": req.query.name, "type":"LIKE" });
+                WhereClouse.push({ "fieldName": "name", "fieldValue": req.query.name, "type":"LIKE","fieldName":"Attached_retailer__c","fieldValue":"ASC","fieldName":"Attached_retailer__c","fieldValue":"OEM","fieldName":"Attached_retailer__c","fieldValue":"Customer Sales Service","fieldName":"Attached_retailer__c","fieldValue":"Dealers Sales Service","fieldName":"Attached_retailer__c","fieldValue":"Retailers Sales Service","fieldName":"attached_dealer__c","fieldValue":"ASC","fieldName":"attached_dealer__c","fieldValue":"OEM","fieldName":"attached_dealer__c","fieldValue":"Customer Sales Service","fieldName":"attached_dealer__c","fieldValue":"Dealers Sales Service","fieldName":"attached_dealer__c","fieldValue":"Retailers Sales Service" });
             }
             if (validation.issetNotEmpty(req.query.email)) {
-                WhereClouse.push({ "fieldName": "email", "fieldValue": req.query.email, "type":"LIKE" });
+                WhereClouse.push({ "fieldName": "email", "fieldValue": req.query.email, "type":"LIKE","fieldName":"Attached_retailer__c","fieldValue":"ASC","fieldName":"Attached_retailer__c","fieldValue":"OEM","fieldName":"Attached_retailer__c","fieldValue":"Customer Sales Service","fieldName":"Attached_retailer__c","fieldValue":"Dealers Sales Service","fieldName":"Attached_retailer__c","fieldValue":"Retailers Sales Service","fieldName":"attached_dealer__c","fieldValue":"ASC","fieldName":"attached_dealer__c","fieldValue":"OEM","fieldName":"attached_dealer__c","fieldValue":"Customer Sales Service","fieldName":"attached_dealer__c","fieldValue":"Dealers Sales Service","fieldName":"attached_dealer__c","fieldValue":"Retailers Sales Service" });
             }
             if (validation.issetNotEmpty(req.query.phone)) {
-                WhereClouse.push({ "fieldName": "phone", "fieldValue": req.query.phone, "type":"LIKE" });
+                WhereClouse.push({ "fieldName": "phone", "fieldValue": req.query.phone, "type":"LIKE","fieldName":"Attached_retailer__c","fieldValue":"ASC","fieldName":"Attached_retailer__c","fieldValue":"OEM","fieldName":"Attached_retailer__c","fieldValue":"Customer Sales Service","fieldName":"Attached_retailer__c","fieldValue":"Dealers Sales Service","fieldName":"Attached_retailer__c","fieldValue":"Retailers Sales Service","fieldName":"attached_dealer__c","fieldValue":"ASC","fieldName":"attached_dealer__c","fieldValue":"OEM","fieldName":"attached_dealer__c","fieldValue":"Customer Sales Service","fieldName":"attached_dealer__c","fieldValue":"Dealers Sales Service","fieldName":"attached_dealer__c","fieldValue":"Retailers Sales Service" });
             }
             sql = db.SelectAllQry(fields, tableName, WhereClouse, offset, limit,' order by createddate desc');
             console.log(`INFO::: Get all Contacts = ${sql}`);

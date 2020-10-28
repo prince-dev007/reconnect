@@ -63,7 +63,6 @@ async function addOrderAndOrderLine(myDetails,order,orderLineItems){
                 // orderDetail = await db.insertRecord(orderLineFields, orderLineFieldValues, orderLineTableName);
                 
                 fieldsToBeInsert = `pg_id__c,order_pg_id__c, asm__c, business__c, date__c, account__c, item__c,  psm__c, quantity__c, retailer__c, createddate`;
-
                 sql = `INSERT into ${process.env.TABLE_SCHEMA_NAME}.${orderLineTableName} (${fieldsToBeInsert}) VALUES ${fieldValues}`;
                 
                 sql += ` RETURNING id`;
