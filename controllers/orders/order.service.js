@@ -49,9 +49,9 @@ async function getAll(req) {
             var offset = '0', limit = '1000';
             if (validation.issetNotEmpty(req.query.sellerid)) {
                 if (req.query.type != undefined && req.query.type == 'Dealer') {
-                    WhereClouse.push({ "fieldName": "dealer__c", "fieldValue": req.query.sellerid });
+                    WhereClouse.push({ "fieldName": "dealer__c", "fieldValue": req.query.sellerid,"fieldName":"dealer__c.Dealer","fieldValue":"ASC" });
                 } else if (req.query.type != undefined && req.query.type == 'Retailer') {
-                    WhereClouse.push({ "fieldName": "retailer__c", "fieldValue": req.query.sellerid });
+                    WhereClouse.push({ "fieldName": "retailer__c", "fieldValue": req.query.sellerid,"fieldName":"retailer__c","fieldValue":"ASC" });
                 } else {
                     // If not type provided then we can check it on database 
                     // todo: Rohit

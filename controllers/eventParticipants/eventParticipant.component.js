@@ -33,7 +33,7 @@ async function addEventParticipants(myDetails,eventParticipants){
             });
             var contactWhereClouse = [];
             if (contactIds.length > 0) {
-                contactWhereClouse.push({ "fieldName": "sfid", "fieldValue": contactIds, "type":"IN" });
+                contactWhereClouse.push({ "fieldName": "sfid", "fieldValue": contactIds, "type":"IN","fieldName":"event_participants__c","fieldValue":"Service Engineer" });
             }
             contactSql = db.SelectAllQry(['sfid','name'], 'contact', contactWhereClouse, '0', '999',' ');
             
@@ -122,7 +122,7 @@ async function editEventParticipants(myDetails,eventParticipant){
 
 
             const WhereClouse = [];
-            WhereClouse.push({ "field": "pg_id__c", "value": eventParticipant.pg_id__c });
+            WhereClouse.push({ "field": "pg_id__c", "value": eventParticipant.pg_id__c,"field":"event_participants__c","value":"other" });
          
             eventDetail = await db.updateRecord(tableName, fieldValue, WhereClouse);
 

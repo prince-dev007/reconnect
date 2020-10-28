@@ -38,7 +38,7 @@ async function getAll(req) {
             const WhereClouse = [];
             var offset = '0', limit = '1000';
             if (validation.issetNotEmpty(req.query.sellerid)) {
-                    WhereClouse.push({ "fieldName": "dealer__c", "fieldValue": req.query.sellerid });
+                    WhereClouse.push({ "fieldName": "dealer__c", "fieldValue": req.query.sellerid ,"fieldName":"dealer__c","fieldValue":"ASC"});
             }
 
            

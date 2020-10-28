@@ -55,7 +55,7 @@ async function getAll(req) {
                 WhereClouse.push({ "fieldName": "asm__c", "fieldValue": req.headers.agentid });
             }
             if (validation.issetNotEmpty(req.query.contact)) {
-                WhereClouse.push({ "fieldName": "source__c", "fieldValue": req.query.contact });
+                WhereClouse.push({ "fieldName": "source__c", "fieldValue": req.query.contact,"fieldName":"Source__c","fieldValue":"Service_Engineer", });
             }
 
             sql = db.SelectAllQry(fields, tableName, WhereClouse, offset, limit,' order by createddate desc');

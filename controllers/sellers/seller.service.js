@@ -106,9 +106,9 @@ async function getAll(req) {
 
                         account_ids = account_ids.join("','");
                         if (req.query.type == 'Retailer') {
-                            accountOrderSql = `SELECT DISTINCT on (retailer__c) retailer__c ,name,sfid,date_part('epoch'::text, Order_Date__c) * (1000)::double precision as Order_Date__c,dealer__c,Total_Product_SKU__c,order_value__c FROM ${process.env.TABLE_SCHEMA_NAME}.Order__c where retailer__c IN ('${account_ids}') order by retailer__c,createddate desc`;
+                            accountOrderSql = `SELECT DISTINCT on (retailer__c) retailer__c ,name,sfid,date_part('epoch'::text, Order_Date__c) * (1000)::double precision as Order_Date__c,dealer__c,Total_Product_SKU__c,order_value__c FROM ${process.env.TABLE_SCHEMA_NAME}.Order__c where retailer__c AND Retailer__c.Retailer = ASC AND Retailer__c.Retailer = Customer Sales Service AND Retailer__c.Retailer = Dealers Sales Service AND Retailer__c.Retailer = Retailers Sales Service IN ('${account_ids}') order by retailer__c,createddate desc`;
                         } else {
-                            accountOrderSql = `SELECT DISTINCT on (dealer__c) dealer__c ,name,sfid,date_part('epoch'::text, Order_Date__c) * (1000)::double precision as Order_Date__c,Retailer__c,Total_Product_SKU__c,order_value__c FROM ${process.env.TABLE_SCHEMA_NAME}.Order__c where Dealer__c IN ('${account_ids}') order by dealer__c,createddate desc`;
+                            accountOrderSql = `SELECT DISTINCT on (dealer__c) dealer__c ,name,sfid,date_part('epoch'::text, Order_Date__c) * (1000)::double precision as Order_Date__c,Retailer__c,Total_Product_SKU__c,order_value__c FROM ${process.env.TABLE_SCHEMA_NAME}.Order__c where Dealer__c AND Dealer__c.Dealer = OEM AND Dealer__c.Dealer = OEM AND Dealer__c.Dealer = Customer Sales and Service AND Dealer__c.Dealer = Dealers Sales Service    IN ('${account_ids}') order by dealer__c,createddate desc`;
                         }
 
                         console.log(`INFO::::::::: GET account order  === ${accountOrderSql}`);

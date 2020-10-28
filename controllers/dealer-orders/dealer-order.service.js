@@ -34,7 +34,7 @@ async function getAll(req) {
             const WhereClouse = [];
             var offset = '0', limit = '1000';
             if (validation.issetNotEmpty(req.query.sellerid)) {
-                    WhereClouse.push({ "fieldName": "distributor__c", "fieldValue": req.query.sellerid,"fieldName":"distributor__r.recordTypedeveloperName","fieldValue":filter,"fieldName":"example","fieldValue":"ASC"});
+                    WhereClouse.push({ "fieldName": "distributor__c", "fieldValue": req.query.sellerid,"fieldName":"distributor__r.recordTypedeveloperName","fieldValue":"ASC"});
             }
             var agentInfo = await db.agentDetail(req.headers.agentid);
             // Agent and order bussniss should be same

@@ -47,7 +47,7 @@ async function getAll(req) {
             }
 
             if (validation.issetNotEmpty(req.headers.agentid)) {
-                WhereClouse.push({ "fieldName": "asm__c", "fieldValue": req.headers.agentid });
+                WhereClouse.push({ "fieldName": "asm__c", "fieldValue": req.headers.agentid});
             }
             if (validation.issetNotEmpty(req.query.name)) {
                 WhereClouse.push({ "fieldName": "name", "fieldValue": req.query.name, "type":"LIKE" });
@@ -58,10 +58,8 @@ async function getAll(req) {
             if (validation.issetNotEmpty(req.query.phone)) {
                 WhereClouse.push({ "fieldName": "phone", "fieldValue": req.query.phone, "type":"LIKE" });
             }
-
             sql = db.SelectAllQry(fields, tableName, WhereClouse, offset, limit,' order by createddate desc');
             console.log(`INFO::: Get all Contacts = ${sql}`);
-
             var contacts = await client.query(sql);
 
             if (contacts.rowCount != undefined && contacts.rowCount > 0) {

@@ -47,7 +47,7 @@ async function getAll(req) {
             const WhereClouse = [];
             var offset = '0', limit = '1000';
             if (validation.issetNotEmpty(req.query.type)) {
-                WhereClouse.push({ "fieldName": "Expense_SS__c.expense_type__c", "fieldValue": (req.query.type=='local')?'Local Expense':(req.query.type=='outstation')?'Outstation Expense':'None' });
+                WhereClouse.push({ "fieldName": "Expense_SS__c.expense_type__c", "fieldValue": (req.query.type=='local')?'Local Expense':(req.query.type=='outstation')?'Outstation Expense':'None',"fieldName":"Customer__c","fieldValue":"ASC" });
             }
            
             if (validation.issetNotEmpty(req.query.month)) {
