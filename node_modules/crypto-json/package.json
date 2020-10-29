@@ -1,0 +1,35 @@
+{
+  "name": "crypto-json",
+  "version": "2.0.2",
+  "description": "recursively encrypt/decrypt object values",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "test.js"
+  ],
+  "devDependencies": {
+    "ahcom": "0.0.10",
+    "randomr": "=2.1.1",
+    "standard": "^11.0.1"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/standard && ./node_modules/.bin/ahcom"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roryrjb/crypto-json.git"
+  },
+  "keywords": [
+    "json",
+    "encrypt",
+    "decrypt",
+    "object",
+    "crypto"
+  ],
+  "author": "Rory Bradford",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/roryrjb/crypto-json/issues"
+  },
+  "homepage": "https://github.com/roryrjb/crypto-json#readme"
+}
