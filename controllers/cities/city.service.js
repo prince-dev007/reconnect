@@ -13,7 +13,7 @@ module.exports = {
 };
 
 var CITY_FIELD = [`name`,`sfid`,`city_code__c`,`date_part('epoch'::text, createddate) * (1000)::double precision as createddate`];
-var CITY_TABLE_NAME = `City_SS__c__c`;
+var CITY_TABLE_NAME = `City_SS__c`;
 momenttz = require('moment-timezone');
 /**
  * This method is used to get all orders using follwing parameters
